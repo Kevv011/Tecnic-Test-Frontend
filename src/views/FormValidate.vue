@@ -9,7 +9,12 @@ import { submitForm } from '../api/formPost'; // Import de funcion para solicitu
 const messageSuccess = ref('');
 const messageError = ref('');
 
-const { resetForm } = useForm();
+// Valores iniciales para los campos con vee-validate
+const formValues = {
+  name:'',
+  email: '',
+  phone: '',
+};
 
 // Esquema de validación para cada campo con libreria YUP
 const schema = yup.object({
@@ -25,8 +30,7 @@ const schema = yup.object({
 });
 
 // Manejo de solicitud POST del form
-const sendDataForm = async (values) => {
-  
+const sendDataForm = async (values, { resetForm }) => {
   try {
     const data = await submitForm(values);
     messageSuccess.value = 'Formulario enviado correctamente';
@@ -45,8 +49,8 @@ const sendDataForm = async (values) => {
 <template>
   <section class="max-w-md mx-auto mt-10 p-8 rounded-lg shadow-md">
     <h2 class="text-3xl font-bold mb-6 text-center">Formulario de Registro</h2>
-    
-    <Form :validation-schema="schema" @submit="sendDataForm" class="space-y-6">
+
+    <Form :validation-schema="schema" @submit="sendDataForm" :initial-values="formValues" class="space-y-6">
       <!-- Campo Nombre -->
       <div class="flex flex-col gap-1">
         <label class="font-medium mb-1" for="name">Nombre: </label>
