@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";                           // Estado reactivo en VUE
-import { fetchCharacters } from "../api/characters";            // Funcion que procesa 6 personajes
-import { getEpisodeName } from "../api/firstAppearanceEpisode"; // Funcion que procesa la primera ubicacion
+import { ref, onMounted } from "vue";                                             // Estado reactivo en VUE
+import { fetchCharacters } from "../api/APIRest_RickMorty/characters";            // Funcion que procesa 6 personajes
+import { getEpisodeName } from "../api/APIRest_RickMorty/firstAppearanceEpisode"; // Funcion que procesa la primera ubicacion
 
 import rickMorty from '../assets/rickMorty.png';
 
