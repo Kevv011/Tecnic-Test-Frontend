@@ -1,9 +1,16 @@
 <script setup>
-import RickMortyCharacters from './components/RickMortyCharacters.vue';
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <RickMortyCharacters  />
+  <nav class="mb-4 space-x-4">
+    <RouterLink to="/" class="px-4 py-2 border border-black bg-white text-black rounded">Form Vee-Validate</RouterLink>
+    <RouterLink to="/APIRest" class="px-4 py-2 border border-black bg-black text-white rounded">API Rest</RouterLink>
+  </nav>
+
+  <hr class="mb-5">
+
+  <router-view />
 </template>
 
 <style scoped>
