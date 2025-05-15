@@ -1,9 +1,15 @@
 <script setup>
-import { Field, Form, ErrorMessage } from "vee-validate"; // Import de elementos de formulario vee-validate
+import { Field, Form, ErrorMessage, useForm } from "vee-validate"; // Import de elementos de formulario vee-validate
 import * as yup from "yup"; // Import de libreria YUP
 
 import { ref } from 'vue';
 import { submitForm } from '../api/formPost'; // Import de funcion para solicitud POST de formulario
+
+// Manejo de mensajes al enviar la informacion
+const messageSuccess = ref('');
+const messageError = ref('');
+
+const { resetForm } = useForm();
 
 // Esquema de validación para cada campo con libreria YUP
 const schema = yup.object({
@@ -18,17 +24,29 @@ const schema = yup.object({
     .matches(/^[0-9]{8,15}$/, "Número de teléfono inválido"),
 });
 
-// Función de envío (solo log por ahora)
-function onSubmit(values) {
-  console.log("Formulario enviado:", values);
-}
+// Manejo de solicitud POST del form
+const sendDataForm = async (values) => {
+  
+  try {
+    const data = await submitForm(values);
+    messageSuccess.value = 'Formulario enviado correctamente';
+    console.log(data);
+
+    resetForm();
+
+  } catch(error) {
+    messageError.value = 'Ocurrio un error al envia el formulario';
+    console.error(error);
+  }
+};
+
 </script>
 
 <template>
   <section class="max-w-md mx-auto mt-10 p-8 rounded-lg shadow-md">
     <h2 class="text-3xl font-bold mb-6 text-center">Formulario de Registro</h2>
     
-    <Form :validation-schema="schema" @submit="onSubmit" class="space-y-6">
+    <Form :validation-schema="schema" @submit="sendDataForm" class="space-y-6">
       <!-- Campo Nombre -->
       <div class="flex flex-col gap-1">
         <label class="font-medium mb-1" for="name">Nombre: </label>
@@ -57,6 +75,16 @@ function onSubmit(values) {
       </div>
 
       <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">Enviar</button>
+
+      <!-- Mensaje de exito si los datos se procesaron correctamente -->
+      <p class="text-green-600 text-center" v-if="messageSuccess">
+        {{ messageSuccess }}
+      </p>
+
+      <!-- Mensaje de error si hubo alguna falla al enviar los datos -->
+      <p class="text-red-600 text-center" v-if="messageError">
+        {{ messageError }}
+      </p>
     </Form>
   </section>
 </template>
