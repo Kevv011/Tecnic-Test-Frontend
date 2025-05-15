@@ -2,6 +2,9 @@
 import { Field, Form, ErrorMessage } from "vee-validate"; // Import de elementos de formulario vee-validate
 import * as yup from "yup"; // Import de libreria YUP
 
+import { ref } from 'vue';
+import { submitForm } from '../api/formPost'; // Import de funcion para solicitud POST de formulario
+
 // Esquema de validación para cada campo con libreria YUP
 const schema = yup.object({
   name: yup.string().required("El nombre es obligatorio"),
