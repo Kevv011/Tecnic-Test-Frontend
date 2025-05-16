@@ -1,5 +1,32 @@
-# Vue 3 + Vite
+# Prueba técnica Frontend - Proyecto con Vue 3 js + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Dependencias utilizadas
+Ejecutar `npm install` para instalar las dependencias del proyecto.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+- ### tailwindcss/vite:
+Integración de Tailwind CSS con Vite para estilos utilitarios rápidos y eficientes.
+
+- ### axios:
+Cliente HTTP para realizar solicitudes a APIs de forma sencilla.
+
+- ### vee-validate: 
+Biblioteca para validación de formularios en Vue de forma reactiva y escalable.
+
+- ### vue-router:
+Enrutador oficial de Vue para manejar navegación entre vistas y rutas.
+
+- ### yup:
+Validador de esquemas para estructurar reglas de validación reutilizables y robustas. Utilizado en conjunto con vee-validate
+
+
+## Documentación consultada
+- ### [Vee-validate V4](https://vee-validate.logaretm.com/v4/)
+- ### [Axios HTTP](https://axios-http.com/docs/intro)
+- ### [Tailwind CSS](https://v2.tailwindcss.com/docs)
+- ### [Vue Router](https://router.vuejs.org/installation.html)
+- ### [Libreria YUP](https://www.npmjs.com/package/yup?activeTab=readme)
+
+## Despliegue 
+El proyecto está desplegado en **Netlify** para acceso público.  
+URL: [https://tecnic-test-frontend.netlify.app/](https://tecnic-test-frontend.netlify.app/)
+
