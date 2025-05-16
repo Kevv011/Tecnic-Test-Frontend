@@ -25,7 +25,7 @@ const schema = yup.object({
   phone: yup
     .string()
     .required("El teléfono es obligatorio")
-    .matches(/^[0-9]{8,15}$/, "Número de teléfono inválido"),
+    .matches(/^[0-9]{8,15}$/, "El número debe tener entre 8 y 15 dígitos numéricos."),
 });
 
 // Manejo de solicitud POST del form
@@ -53,7 +53,7 @@ const sendDataForm = async (values, { resetForm }) => {
       <!-- Campo Nombre -->
       <div class="flex flex-col gap-1">
         <label class="font-medium mb-1" for="name">Nombre: </label>
-        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="name" id="name" />
+        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="name" id="name" placeholder="John Doe" />
         <ErrorMessage name="name" v-slot="{ message }">
           <p class="text-red-500 text-sm mt-1">{{ message }}</p>
         </ErrorMessage>
@@ -62,7 +62,7 @@ const sendDataForm = async (values, { resetForm }) => {
       <!-- Campo Email -->
       <div class="flex flex-col gap-1">
         <label class="font-medium mb-1" for="email">Email: </label>
-        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="email" id="email" />
+        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="email" id="email" placeholder="example@example.com" />
         <ErrorMessage name="email" v-slot="{ message }">
           <p class="text-red-500 text-sm mt-1">{{ message }}</p>
         </ErrorMessage>
@@ -71,7 +71,7 @@ const sendDataForm = async (values, { resetForm }) => {
       <!-- Campo Teléfono -->
       <div class="flex flex-col gap-1">
         <label class="font-medium mb-1" for="phone">Teléfono: </label>
-        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="phone" id="phone" />
+        <Field class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" name="phone" id="phone" placeholder="22000000" />
         <ErrorMessage name="phone" v-slot="{ message }">
           <p class="text-red-500 text-sm mt-1">{{ message }}</p>
         </ErrorMessage>
