@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Field, Form, ErrorMessage, useForm } from "vee-validate"; // Import de elementos de formulario vee-validate
+import { Field, Form, ErrorMessage } from "vee-validate"; // Import de elementos de formulario vee-validate
 import * as yup from "yup"; // Import de libreria YUP
 import { submitForm } from '../api/handleForm/formPost'; // Import de funcion para solicitud POST de formulario
 

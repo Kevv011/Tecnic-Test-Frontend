@@ -1,4 +1,3 @@
-import axios from "axios";
 import { apiForm } from './index';
 
 // Funcion para hacer la solicitud POST con Axios y guardar la informacion del formulario
